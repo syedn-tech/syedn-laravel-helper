@@ -1,7 +1,7 @@
 # Syedn Tech - Laravel Helper
 
 <p align="center">
-  <a href="https://github.com/syedn-tech/laravel-helper">
+  <a href="https://github.com/syedn-tech/syedn-laravel-helper">
     <img src="assets/img/{sn}.jpg" width="100" alt="SYEDN Logo" style="border-radius: 15px;">
   </a>
 </p>

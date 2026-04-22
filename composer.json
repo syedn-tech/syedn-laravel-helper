@@ -17,7 +17,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Syedn\\Helper\\SyednPackageProvider"
+                "Syedn\\Helper\\SyednPackageServiceProvider"
             ]
         }
     },

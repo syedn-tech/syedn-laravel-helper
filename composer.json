@@ -23,7 +23,11 @@
     },
     "minimum-stability": "dev",
     "require": {
-        "php": ">=8.2",
-        "laravel/framework": "^9.1"
+        "php": "^8.4",
+        "laravel/framework": "^9.1",
+        "illuminate/support": "^12",
+        "illuminate/database": "^12",
+        "illuminate/console": "^12",
+        "spatie/laravel-query-builder": "^6.3"
     }
 }

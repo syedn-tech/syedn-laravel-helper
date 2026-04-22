@@ -1,0 +1,26 @@
+{
+    "name": "syedn/laravel-helper",
+    "description": "Helper for syedn's laravel project",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Syedn\\Helper\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Syed Nasharudin",
+            "email": "s.nasharudin@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Syedn\\Helper\\SyednPackageProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "require": {}
+}

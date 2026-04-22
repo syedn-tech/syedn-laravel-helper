@@ -54,19 +54,20 @@ class SyednPackageServiceProvider extends ServiceProvider
             mkdir($stubsPath, 0755, true);
         }
 
-        // All stubs (both Laravel overrides and package custom stubs) at same level
         $allStubMappings = [
             // Laravel overrides
-            'model.stub' => 'model.stub',
-            'controller.stub' => 'controller.stub',
-            'controller.plain.stub' => 'controller.plain.stub',
+            'model.stub'                => 'model.stub',
+            'controller.stub'           => 'controller.stub',       // Standard Web/Backend
+            'controller.api.stub'       => 'controller.api.stub',   // NEW: Dedicated API stub
+            'controller.plain.stub'     => 'controller.plain.stub',
             'controller.invokable.stub' => 'controller.invokable.stub',
+            
             // Package custom stubs
-            'repository.stub' => 'repository.stub',
-            'service.stub' => 'service.stub',
-            'constant.stub' => 'constant.stub',
-            'exception.stub' => 'exception.stub',
-            'trait.stub' => 'trait.stub',
+            'repository.stub'           => 'repository.stub',
+            'service.stub'              => 'service.stub',
+            'constant.stub'             => 'constant.stub',
+            'exception.stub'            => 'exception.stub',
+            'trait.stub'                => 'trait.stub',
         ];
 
         foreach ($allStubMappings as $consumerStub => $packageStub) {
@@ -74,7 +75,8 @@ class SyednPackageServiceProvider extends ServiceProvider
             $packageStubPath = $packageStubsPath . '/' . $packageStub;
 
             if (file_exists($packageStubPath)) {
-                // Simply copy the stub file - reliable and cross-platform
+                // Note: If you want to avoid overwriting user customizations, 
+                // you could wrap this in a !file_exists($consumerStubPath) check.
                 copy($packageStubPath, $consumerStubPath);
             }
         }

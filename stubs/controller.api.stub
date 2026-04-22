@@ -1,0 +1,35 @@
+<?php 
+
+namespace {{ namespace }};
+
+use Syedn\Helper\Controllers\BaseApiController;
+use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
+
+class {{ class }} extends BaseApiController
+{
+    public function index(): JsonResponse
+    {
+        return [];
+    }
+
+    public function store(Request $request): JsonResponse
+    {
+        return ['message' => 'Created'];
+    }
+
+    public function show($id): JsonResponse
+    {
+        return [];
+    }
+
+    public function update(Request $request, $id): JsonResponse
+    {
+        return ['message' => 'Updated'];
+    }
+
+    public function destroy($id): JsonResponse
+    {
+        return [];
+    }
+}

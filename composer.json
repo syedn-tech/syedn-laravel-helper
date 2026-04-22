@@ -1,5 +1,5 @@
 {
-    "name": "syedn/laravel-helper",
+    "name": "syedn-tech/laravel-helper",
     "description": "Helper for syedn's laravel project",
     "type": "library",
     "license": "MIT",
@@ -22,5 +22,8 @@
         }
     },
     "minimum-stability": "dev",
-    "require": {}
+    "require": {
+        "php": ">=8.2",
+        "laravel/framework": "^9.1"
+    }
 }

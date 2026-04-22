@@ -1,0 +1,26 @@
+<?php
+
+namespace {{ namespace }};
+
+use Syedn\Helper\Repositories\BaseRepository;
+use {{ namespacedModel }};
+
+class {{ class }} extends BaseRepository
+{
+    /**
+     * The model class.
+     *
+     * @var string
+     */
+    protected string $modelClass = {{ model }}::class;
+
+    /**
+     * Create a new repository instance.
+     *
+     * @param {{ model }} $model
+     */
+    public function __construct({{ model }} $model)
+    {
+        parent::__construct($model);
+    }
+}

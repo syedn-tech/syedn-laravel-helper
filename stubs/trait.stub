@@ -1,0 +1,18 @@
+<?php
+
+namespace {{ namespace }};
+
+use Syedn\Helper\Traits\BaseTrait;
+
+trait {{ class }}
+{
+    use BaseTrait;
+
+    /**
+     * Example trait method - replace with your own.
+     */
+    public function exampleMethod(): void
+    {
+        //
+    }
+}

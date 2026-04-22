@@ -1,0 +1,10 @@
+<?php
+
+namespace {{ namespace }};
+
+use Syedn\Helper\Services\BaseService;
+
+class {{ class }} extends BaseService
+{
+
+}

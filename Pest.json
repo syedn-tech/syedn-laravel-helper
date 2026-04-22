@@ -1,0 +1,21 @@
+{
+    "preset": "laravel",
+    "testDirectory": "tests",
+    "verbose": true,
+    "colors": true,
+    "stopOnFailure": false,
+    "coverage": {
+        "include": [
+            "src"
+        ],
+        "exclude": [
+            "stubs",
+            "vendor"
+        ]
+    },
+    "environment": {
+        "APP_ENV": "testing",
+        "DB_CONNECTION": "mysql",
+        "DB_DATABASE": "CONSUMER_DB_TESTING"
+    }
+}

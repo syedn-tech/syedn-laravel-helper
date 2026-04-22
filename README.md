@@ -11,6 +11,16 @@
 
 A collection of useful helper functions and classes to accelerate Laravel development at SYEDN Tech Solutions.
 
+## Features
+
+- **Base Classes**: Model, Repository, Service, Trait, Constant, and Exception base classes with interfaces
+- **Custom Artisan Commands**: Generate repositories, services, and constants
+- **Custom Stub System**: Override Laravel's default stubs with package-specific implementations
+- **Auto-Discovery**: Automatically registers service provider and commands
+- **Automatic Dependencies**: Auto-installs Orchestra Testbench as dev dependency
+- **Smart Composer Scripts**: Adds convenient test scripts to consumer projects
+- **Laravel 12 Compatible**: Built for Laravel 12 and PHP 8.4+
+
 ## Installation
 
 You can install the package via composer:

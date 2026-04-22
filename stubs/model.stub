@@ -1,0 +1,23 @@
+<?php
+
+namespace {{ namespace }};
+
+use Syedn\Helper\Models\BaseModel;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+
+class {{ class }} extends BaseModel
+{
+    use HasFactory;
+
+    protected $fillable = [
+    ];
+
+    protected $includes = [
+    ];
+
+    protected $filters = [
+    ];
+
+    protected $sorts = [
+    ];
+}

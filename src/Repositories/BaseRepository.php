@@ -1,13 +1,13 @@
 <?php
 
-namespace TalentCorpMalaysia\MYXpatsBackendLibrary\Repositories;
+namespace Syedn\Helper\Repositories;
 
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
 use Illuminate\Database\Eloquent\Collection;
 use Spatie\QueryBuilder\QueryBuilder;
-use TalentCorpMalaysia\MYXpatsBackendLibrary\Contracts\BaseRepositoryInterface;
+use Syedn\Helper\Contracts\BaseRepositoryInterface;
 
 abstract class BaseRepository implements BaseRepositoryInterface
 {

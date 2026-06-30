@@ -24,11 +24,26 @@ abstract class BaseAuthenticatableModel extends Model implements
 
     use HasFactory, Authenticatable, Authorizable, CanResetPassword, MustVerifyEmail;
 
-    protected $includes;
+    /**
+     * Define the allowed includes for Spatie QueryBuilder.
+     * Must be overwritten by the child class.
+     * * @return array
+     */
+    abstract protected function includes(): array;
 
-    protected $filters;
+    /**
+     * Define the allowed filters for Spatie QueryBuilder.
+     * Must be overwritten by the child class.
+     * * @return array
+     */
+    abstract protected function filters(): array;
 
-    protected $sorts;
+    /**
+     * Define the allowed sorts for Spatie QueryBuilder.
+     * Must be overwritten by the child class.
+     * * @return array
+     */
+    abstract protected function sorts(): array;
 
     /**
      * Build a query builder instance for the model with the given includes, filters and sorts.
@@ -39,9 +54,9 @@ abstract class BaseAuthenticatableModel extends Model implements
         $model = new static();
 
         return QueryBuilder::for($queryModel)
-            ->allowedIncludes($model->includes ?? [])
-            ->allowedFilters($model->filters ?? [])
-            ->allowedSorts($model->sorts ?? [])
+            ->allowedIncludes($model->includes())
+            ->allowedFilters($model->filters())
+            ->allowedSorts($model->sorts())
             ->getEloquentBuilder();
     }
 
@@ -56,9 +71,9 @@ abstract class BaseAuthenticatableModel extends Model implements
         $model = new static();
 
         return QueryBuilder::for($queryModel)
-            ->allowedIncludes($model->includes ?? [])
-            ->allowedFilters($model->filters ?? [])
-            ->allowedSorts($model->sorts ?? [])
+            ->allowedIncludes($model->includes())
+            ->allowedFilters($model->filters())
+            ->allowedSorts($model->sorts())
             ->paginate(
                 $perPage,
                 $columns,

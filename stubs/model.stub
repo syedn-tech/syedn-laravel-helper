@@ -10,14 +10,36 @@ class {{ class }} extends BaseModel
     use HasFactory;
 
     protected $fillable = [
+        //
     ];
 
-    protected $includes = [
-    ];
+    /**
+     * Define the allowed includes for Spatie QueryBuilder.
+     */
+    protected function allowedIncludes(): array
+    {
+        return [
+            //
+        ];
+    }
 
-    protected $filters = [
-    ];
+    /**
+     * Define the allowed filters for Spatie QueryBuilder.
+     */
+    protected function allowedFilters(): array
+    {
+        return [
+            //
+        ];
+    }
 
-    protected $sorts = [
-    ];
+    /**
+     * Define the allowed sorts for Spatie QueryBuilder.
+     */
+    protected function allowedSorts(): array
+    {
+        return [
+            //
+        ];
+    }
 }

@@ -14,27 +14,44 @@ abstract class BaseModel extends Model
 
     use HasFactory;
 
-    protected $includes;
-
-    protected $filters;
-
-    protected $sorts;
+    /**
+     * Define the allowed includes for Spatie QueryBuilder.
+     * Must be overwritten by the child class.
+     * * @return array
+     */
+    abstract protected function allowedIncludes(): array;
 
     /**
-     * Build a query builder instance for the model with the given includes, filters and sorts.
-     * @return \Illuminate\Database\Eloquent\Builder
+     * Define the allowed filters for Spatie QueryBuilder.
+     * Must be overwritten by the child class.
+     * * @return array
+     */
+    abstract protected function allowedFilters(): array;
+
+    /**
+     * Define the allowed sorts for Spatie QueryBuilder.
+     * Must be overwritten by the child class.
+     * * @return array
+     */
+    abstract protected function allowedSorts(): array;
+
+    /**
+     * Build a query builder instance for the model.
      */
     public static function queryBuilder(Builder|Model $queryModel): Builder
     {
         $model = new static();
 
         return QueryBuilder::for($queryModel)
-            ->allowedIncludes($model->includes ?? [])
-            ->allowedFilters($model->filters ?? [])
-            ->allowedSorts($model->sorts ?? [])
+            ->allowedIncludes($model->allowedIncludes())
+            ->allowedFilters($model->allowedFilters())
+            ->allowedSorts($model->allowedSorts())
             ->getEloquentBuilder();
     }
 
+    /**
+     * Build a paginated query builder instance.
+     */
     public static function queryBuilderPaginate(
         Builder|Model $queryModel,
         $perPage = self::DEFAULT_PAGINATE_PER_PAGE,
@@ -46,15 +63,9 @@ abstract class BaseModel extends Model
         $model = new static();
 
         return QueryBuilder::for($queryModel)
-            ->allowedIncludes($model->includes ?? [])
-            ->allowedFilters($model->filters ?? [])
-            ->allowedSorts($model->sorts ?? [])
-            ->paginate(
-                $perPage,
-                $columns,
-                $pageName,
-                $page,
-                $total
-            );
+            ->allowedIncludes($model->allowedIncludes())
+            ->allowedFilters($model->allowedFilters())
+            ->allowedSorts($model->allowedSorts())
+            ->paginate($perPage, $columns, $pageName, $page, $total);
     }
 }

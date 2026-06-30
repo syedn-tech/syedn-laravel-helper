@@ -19,21 +19,21 @@ abstract class BaseModel extends Model
      * Must be overwritten by the child class.
      * * @return array
      */
-    abstract protected function allowedIncludes(): array;
+    abstract protected function includes(): array;
 
     /**
      * Define the allowed filters for Spatie QueryBuilder.
      * Must be overwritten by the child class.
      * * @return array
      */
-    abstract protected function allowedFilters(): array;
+    abstract protected function filters(): array;
 
     /**
      * Define the allowed sorts for Spatie QueryBuilder.
      * Must be overwritten by the child class.
      * * @return array
      */
-    abstract protected function allowedSorts(): array;
+    abstract protected function sorts(): array;
 
     /**
      * Build a query builder instance for the model.
@@ -43,9 +43,9 @@ abstract class BaseModel extends Model
         $model = new static();
 
         return QueryBuilder::for($queryModel)
-            ->allowedIncludes($model->allowedIncludes())
-            ->allowedFilters($model->allowedFilters())
-            ->allowedSorts($model->allowedSorts())
+            ->allowedIncludes($model->includes())
+            ->allowedFilters($model->filters())
+            ->allowedSorts($model->sorts())
             ->getEloquentBuilder();
     }
 
@@ -63,9 +63,9 @@ abstract class BaseModel extends Model
         $model = new static();
 
         return QueryBuilder::for($queryModel)
-            ->allowedIncludes($model->allowedIncludes())
-            ->allowedFilters($model->allowedFilters())
-            ->allowedSorts($model->allowedSorts())
+            ->allowedIncludes($model->includes())
+            ->allowedFilters($model->filters())
+            ->allowedSorts($model->sorts())
             ->paginate($perPage, $columns, $pageName, $page, $total);
     }
 }

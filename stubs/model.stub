@@ -16,7 +16,7 @@ class {{ class }} extends BaseModel
     /**
      * Define the allowed includes for Spatie QueryBuilder.
      */
-    protected function allowedIncludes(): array
+    protected function includes(): array
     {
         return [
             //
@@ -26,7 +26,7 @@ class {{ class }} extends BaseModel
     /**
      * Define the allowed filters for Spatie QueryBuilder.
      */
-    protected function allowedFilters(): array
+    protected function filters(): array
     {
         return [
             //
@@ -36,7 +36,7 @@ class {{ class }} extends BaseModel
     /**
      * Define the allowed sorts for Spatie QueryBuilder.
      */
-    protected function allowedSorts(): array
+    protected function sorts(): array
     {
         return [
             //

@@ -3,7 +3,9 @@
 namespace {{ namespace }};
 
 use Syedn\Helper\Services\BaseService;
+use Illuminate\Container\Attributes\Singleton;
 
+#[Singleton]
 class {{ class }} extends BaseService
 {
 

@@ -3,11 +3,14 @@
 namespace Syedn\Helper;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Routing\Router;
+use Syedn\Helper\Middlewares\PreventBackHistory;
 
 class SyednPackageServiceProvider extends ServiceProvider
 {
-    public function boot()
+    public function boot(Router $router)
     {
+        $this->registerMiddleware($router);
         $this->registerCommands();
         $this->autoInstallStubs();
     }
@@ -80,5 +83,10 @@ class SyednPackageServiceProvider extends ServiceProvider
                 copy($packageStubPath, $consumerStubPath);
             }
         }
+    }
+
+    protected function registerMiddleware(Router $router) {
+        // Using ::class handles the string stringification safely
+        $router->aliasMiddleware('no.back', PreventBackHistory::class);
     }
 }

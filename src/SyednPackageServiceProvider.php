@@ -5,6 +5,7 @@ namespace Syedn\Helper;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Routing\Router;
 use Syedn\Helper\Middlewares\PreventBackHistory;
+use Syedn\Helper\Middlewares\SkipPreventBackHistory;
 
 class SyednPackageServiceProvider extends ServiceProvider
 {
@@ -88,5 +89,6 @@ class SyednPackageServiceProvider extends ServiceProvider
     protected function registerMiddleware(Router $router) {
         // Using ::class handles the string stringification safely
         $router->aliasMiddleware('no.back', PreventBackHistory::class);
+        $router->aliasMiddleware('no.back.skip', SkipPreventBackHistory::class);
     }
 }
